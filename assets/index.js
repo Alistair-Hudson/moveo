@@ -1,9 +1,11 @@
 $(function () {
-    $('.Pager').pagination({
+    $('#pagination').pagination({
         dataSource: 'https://randomuser.me/api/?seed=1',
         locator: 'results',
         totalNumber: 120,  
         pageSize: 10,
+        autoHidePrevious: true,
+        autoHideNext: true,
         alias: {
             pageNumber: 'page',
             pageSize: 'results'
