@@ -3,25 +3,6 @@
 
     <head>
         <title>User Page</title>
-        <!-- <style type= "text/css">
-            #map{
-                height: 400px;
-                width: 100%;
-            }
-        </style>
-        <script>
-            function initMap(latitude, longitude) {
-                const address = {lat: latitude, lng: longitude};
-                const map = new google.maps.Map(document.getElementById("map"), { 
-                    zoom: 4, 
-                    center: address
-                });
-                const marker = new google.maps.Marker({
-                    position: address,
-                    map: map
-                })
-            }
-        </script> -->
     </head>
     <body>
         <h1>User Details</h1>
@@ -32,53 +13,9 @@
                 <td></td>
             </tr>
         </table>
-        <!-- <div id = "map">
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIofkGXWMHwfrdWkoIr8-kqcJxukIUyCk&callback=initMap&libraries=&v=weekly"
-            async></script>
-        </div> -->
         <br/>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript">
-        $(function(){
-            var queryString = decodeURIComponent(window.location.search);
-            queryString = queryString.substring(1);
-            var queries = queryString.split("&");
-            $.ajax({
-                url: 'https://randomuser.me/api/?'+queries[1]+'&'+queries[2]+'&'+queries[3],
-                dataType: 'json',
-                success: function (data){
-                    OnSuccess(data, queries[4]);
-                }
-            })
-        });
-        function OnSuccess(data, element){
-            var result = data.results[element];
-            // initMap(-25, 131);//location.coordinates.latitude, location.coordinates.latitude);
-            RowData("<img src= " + result.picture.thumbnail+"/>", "")
-            RowData("Name", result.name.first + " " + result.name.last);
-            RowData("Email", "<a href= 'mailto: " + result.email + "'>" + result.email + "</a>");
-            RowData("Gender", result.gender);
-            RowData("Age", result.dob.age);
-            var location = result.location;
-            var address = location.street.number + " " + location.street.name + " " + location.city + " " + location.state;
-            RowData("Address", address);
-            // address = address.replace(/ /g, "+");
-            GenerateMap(location.coordinates.latitude, location.coordinates.longitude);
-            
-        }
-        function RowData(heading, data){
-            var row = $("#tblDetails tr:last-child").removeAttr("style").clone(true);
-            $("th", row).eq(0).html(heading);
-            $("td", row).eq(0).html(data);   
-            $("#tblDetails").append(row);
-        }
-        function GenerateMap(lat, lng){
-            var ifrm = document.createElement("iframe");
-            ifrm.setAttribute("src", "https://www.google.com/maps/embed/v1/place?key=AIzaSyCSa8BYtIZMElFgkhYo2f7YCfT27F-ifE0&q=" + lat + "," + lng);
-            ifrm.style.width = "640px";
-            ifrm.style.height = "480px";
-            document.body.appendChild(ifrm);
-        }
+        <script src="assets/UserPage.js">
         </script>
     </body>
 
